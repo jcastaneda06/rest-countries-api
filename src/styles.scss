@@ -1,1 +1,116 @@
 /* You can add global styles to this file, and also import other style files */
+/*
+- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+$dark-blue: hsl(209, 23%, 22%);
+$very-dark-blue: hsl(207, 26%, 17%);
+$very-dark-blue-light: hsl(200, 15%, 8%);
+$dark-gray: hsl(0, 0%, 52%);
+$very-light-gray: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Light colors*/
+$background-color-light: $very-light-gray;
+$element-color-light: $white;
+$text-color-light: $very-dark-blue-light;
+$input-color-light: $dark-gray;
+
+/*Dark colors*/
+$background-color-dark: $very-dark-blue;
+$element-color-dark: $dark-blue;
+$text-color-dark: $white;
+$input-color-dark: $dark-gray;
+
+html[theme='light'] {
+    color: $text-color-light;
+
+    .app {
+        background-color: $background-color-light;
+    }
+
+    .card {
+        background-color: $element-color-light;
+    }
+
+}
+
+html[theme='dark'] {
+    background-color: $background-color-dark;
+    color: $text-color-dark;
+
+    div {
+        background-color: $element-color-dark;
+    }
+
+    input {
+        background-color: $input-color-dark;
+    }
+}
+
+.nav {
+    height: fit-content;
+    width: 100%;
+    padding: 30px 80px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 1px 5px 5px -1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 5px 5px -1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 5px 5px -1px rgba(0, 0, 0, 0.5);
+
+    .theme-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            background-color: transparent;
+            border-style: none;
+        }
+    }
+}
+
+.app {
+    padding: 48px 80px;
+}
+
+.search {
+    margin-bottom: 48px;
+    padding: 0;
+}
+
+.card {
+    height: 336px;
+    width: 264px;
+
+    .flag {
+        height: 160px;
+        width: 100%;
+    }
+
+    .card-body {
+        padding: 30px 25px;
+
+        .country-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px; 
+        }
+
+        .country-info {
+            strong {
+                font-weight: 500;
+            }
+        }
+    }
+}
