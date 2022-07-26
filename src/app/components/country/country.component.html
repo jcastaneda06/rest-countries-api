@@ -1,0 +1,80 @@
+<div class="nav-header">
+    <div class="title">
+        <h4>Where in the world?</h4>
+    </div>
+    <div class="theme-toggle">
+        <button value="Dark mode" (click)="toggleTheme()">Dark Mode</button>
+    </div>
+</div>
+
+<div class="app">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <button class="back-button" (click)="back()">Back</button>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <!--Flag image-->
+            <div class="col">
+                <img class="country-flag" src="{{country.flags!.svg}}" alt="">
+            </div>
+            <div class="col">
+                <div class="row mt-4 mb-4">
+                    <div class="col">
+                    <h2>{{country!.name!.common}}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <strong>Native Name:</strong> {{country.name!.nativeName![nameKey].common}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>Population:</strong> {{country.population}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>Region:</strong> {{country.region}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>Sub Region:</strong> {{country.subregion}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>Capital:</strong> {{country.capital}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <strong>Top Level Domain:</strong> {{country.topLevelDomain}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>Currencies:</strong> {{country.currencies | json}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>Languages:</strong> {{country.languages?.lang}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,279 @@
 /* You can add global styles to this file, and also import other style files */
+/*
+- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+$dark-blue: hsl(209, 23%, 22%);
+$very-dark-blue: hsl(207, 26%, 17%);
+$very-dark-blue-light: hsl(200, 15%, 8%);
+$dark-gray: hsl(0, 0%, 52%);
+$very-light-gray: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Light colors*/
+$background-color-light: $very-light-gray;
+$element-color-light: $white;
+$text-color-light: $very-dark-blue-light;
+$input-color-light: $dark-gray;
+
+/*Dark colors*/
+$background-color-dark: $very-dark-blue;
+$element-color-dark: $dark-blue;
+$text-color-dark: $white;
+$input-color-dark: $dark-gray;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+html[theme='light'] {
+    color: $text-color-light;
+    background-color: $background-color-light;
+
+    .nav-header {
+        background-color: $element-color-light;
+        color: $text-color-light;
+
+        .theme-toggle {
+            button {
+                background-color: $element-color-light;
+                color: $text-color-light;
+            }
+        }
+    }
+
+    .search {
+        input {
+            background-color: $element-color-light;
+            color: $text-color-light;
+        }
+    }
+
+    .filter {
+        select {
+            background-color: $element-color-light;
+            color: $text-color-light;
+        }
+    }
+
+    .app {
+        background-color: $background-color-light;
+    }
+
+    .card {
+        background-color: $element-color-light;
+    }
+
+}
+
+html[theme='dark'] {
+    background-color: $background-color-dark;
+    color: $text-color-dark;
+
+    .nav-header {
+        background-color: $element-color-dark;
+        color: $text-color-dark;
+
+        .theme-toggle {
+            button {
+                background-color: $element-color-dark;
+                color: $text-color-dark;
+            }
+        }
+    }
+
+    .search {
+        input {
+            background-color: $element-color-dark;
+            color: $text-color-dark;
+        }
+    }
+
+    .filter {
+        select {
+            background-color: $element-color-dark;
+            color: $text-color-dark;
+        }
+    }
+
+    .app {
+        background-color: $background-color-dark;
+        color: $text-color-dark;
+    }
+
+    .card {
+        background-color: $element-color-dark;
+    }
+}
+
+.nav-header {
+    position: relative;
+    height: fit-content;
+    width: 100%;
+    padding: 30px 80px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px -5px 20px 5px rgb(0 0 0 / 20%);
+    -webkit-box-shadow: 0px -5px 20px 5px rgb(0 0 0 / 20%);
+    -moz-box-shadow: 0px -5px 20px 5px rgb(0 0 0 / 20%);
+
+    .theme-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            border-style: none;
+        }
+    }
+}
+
+.app {
+    padding: 48px 80px;
+}
+
+.search {
+    input {
+        width: 100%;
+        height: 56px;
+
+        border-style: none;
+        border-radius: 8px;
+
+        text-indent: 16px;
+
+        outline: none;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.filter {
+    display: flex;
+    justify-content: flex-end;
+
+    select {
+        width: 100%;
+        height: 56px;
+        text-indent: 15px;
+
+        outline: none;
+        border-style: none;
+        border-radius: 8px;
+
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.card {
+    width: 264px;
+    margin: 0;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+    cursor: pointer;
+
+    .flag {
+        height: 160px;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: calc(0.375rem - 1px);
+            border-top-right-radius: calc(0.375rem - 1px);
+        }
+    }
+
+    .card-body {
+        padding: 30px 25px;
+
+        .country-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .country-info {
+            strong {
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.country-flag {
+    height: 50%;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+    box-sizing: border-box;
+    padding: 6px 44px;
+    margin: 0;
+}
+
+
+@media screen and (max-width: 1920px) {
+    .nav-header {
+        padding: 48px;
+    }
+
+    .app {
+        padding: 48px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-header {
+        padding: 48px;
+    }
+
+    .app {
+        padding: 48px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .nav-header {
+        padding: 32px;
+    }
+
+    .app {
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+
+    .nav-header {
+        padding: 16px;
+    }
+
+    .app {
+        padding: 8px;
+    }
+}

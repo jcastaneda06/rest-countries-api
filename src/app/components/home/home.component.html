@@ -1,0 +1,98 @@
+<div class="nav-header">
+    <div class="title">
+        <h4>Where in the world?</h4>
+    </div>
+    <div class="theme-toggle">
+        <button value="Dark mode" (click)="toggleTheme()">Dark Mode</button>
+    </div>
+</div>
+
+<div class="app">
+    <!--Filter and search-->
+    <div class="container-fluid mt-4">
+        <div class="row mb-5">
+            <div class="col-md-8 col-sm-12 search mb-3">
+                <input #searchCountryInput placeholder="Search for a country..." [value]="searchInput" type="text"
+                    (input)="searchCountry(searchCountryInput.value)">
+            </div>
+            <div class="col-md-4 col-sm-12 filter">
+                <select #select (change)="filterRegion(select.options.selectedIndex)">
+                    <option value="">Filter by region</option>
+                    <option value="">Africa</option>
+                    <option value="">Americas</option>
+                    <option value="">Asia</option>
+                    <option value="">Europe</option>
+                    <option value="">Oceania</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!--App body without filters-->
+    <div *ngIf="filter == 'none'" class="container-fluid">
+        <div class="row g-4 justify-content-evenly">
+            <ng-container *ngFor="let country of countries">
+                <div *ngIf="country.name!.official!.toLowerCase().includes(searchInput.toLowerCase())"
+                    class="col mb-3 d-flex justify-content-center" loading="lazy">
+                    <div class="card" (click)="onCountry(country.cca2)">
+                        <div class="flag">
+                            <img src="{{country.flags!.svg}}" alt="">
+                        </div>
+                        <div class="card-body">
+                            <div class="country-name">
+                                {{country.name!.official}}
+                            </div>
+                            <div class="country-info">
+                                <strong>Population:</strong> {{country.population}}
+                            </div>
+                            <div class="country-info">
+                                <strong>Region:</strong> {{country.region}}
+                            </div>
+                            <div class="country-info">
+                                <strong>Capital:</strong> {{country.capital}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <!--App body with filters-->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <!--Contenido-->
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="filter != 'none'" class="container-fluid">
+        <div class="row g-4 justify-content-evenly">
+            <ng-container *ngFor="let country of countries">
+                <div *ngIf="country.name!.official!.toLowerCase().includes(searchInput.toLowerCase())"
+                    class="col mb-3 d-flex justify-content-center" loading="lazy">
+                    <div class="card">
+                        <div class="flag">
+                            <img src="{{country.flags!.svg}}" alt="">
+                        </div>
+                        <div class="card-body">
+                            <div class="country-name">
+                                {{country.name!.official}}
+                            </div>
+                            <div class="country-info">
+                                <strong>Population:</strong> {{country.population}}
+                            </div>
+                            <div class="country-info">
+                                <strong>Region:</strong> {{country.region}}
+                            </div>
+                            <div class="country-info">
+                                <strong>Capital:</strong> {{country.capital}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
