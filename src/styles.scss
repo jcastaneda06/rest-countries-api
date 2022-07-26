@@ -32,8 +32,44 @@ $element-color-dark: $dark-blue;
 $text-color-dark: $white;
 $input-color-dark: $dark-gray;
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
 html[theme='light'] {
     color: $text-color-light;
+    background-color: $background-color-light;
+
+    .nav-header {
+        background-color: $element-color-light;
+        color: $text-color-light;
+
+        .theme-toggle {
+            button {
+                background-color: $element-color-light;
+                color: $text-color-light;
+            }
+        }
+    }
+
+    .search {
+        input {
+            background-color: $element-color-light;
+            color: $text-color-light;
+        }
+    }
+
+    .filter {
+        select {
+            background-color: $element-color-light;
+            color: $text-color-light;
+        }
+    }
 
     .app {
         background-color: $background-color-light;
@@ -49,24 +85,52 @@ html[theme='dark'] {
     background-color: $background-color-dark;
     color: $text-color-dark;
 
-    div {
+    .nav-header {
         background-color: $element-color-dark;
+        color: $text-color-dark;
+
+        .theme-toggle {
+            button {
+                background-color: $element-color-dark;
+                color: $text-color-dark;
+            }
+        }
     }
 
-    input {
-        background-color: $input-color-dark;
+    .search {
+        input {
+            background-color: $element-color-dark;
+            color: $text-color-dark;
+        }
+    }
+
+    .filter {
+        select {
+            background-color: $element-color-dark;
+            color: $text-color-dark;
+        }
+    }
+
+    .app {
+        background-color: $background-color-dark;
+        color: $text-color-dark;
+    }
+
+    .card {
+        background-color: $element-color-dark;
     }
 }
 
-.nav {
+.nav-header {
+    position: relative;
     height: fit-content;
     width: 100%;
     padding: 30px 80px;
     display: flex;
     justify-content: space-between;
-    box-shadow: 1px 5px 5px -1px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 1px 5px 5px -1px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 1px 5px 5px -1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px -5px 20px 5px rgb(0 0 0 / 20%);
+    -webkit-box-shadow: 0px -5px 20px 5px rgb(0 0 0 / 20%);
+    -moz-box-shadow: 0px -5px 20px 5px rgb(0 0 0 / 20%);
 
     .theme-toggle {
         display: flex;
@@ -74,7 +138,6 @@ html[theme='dark'] {
         align-items: center;
 
         button {
-            background-color: transparent;
             border-style: none;
         }
     }
@@ -85,17 +148,61 @@ html[theme='dark'] {
 }
 
 .search {
-    margin-bottom: 48px;
-    padding: 0;
+    input {
+        width: 100%;
+        height: 56px;
+
+        border-style: none;
+        border-radius: 8px;
+
+        text-indent: 16px;
+
+        outline: none;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.filter {
+    display: flex;
+    justify-content: flex-end;
+
+    select {
+        width: 100%;
+        height: 56px;
+        text-indent: 15px;
+
+        outline: none;
+        border-style: none;
+        border-radius: 8px;
+
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    }
 }
 
 .card {
-    height: 336px;
     width: 264px;
+    margin: 0;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+    cursor: pointer;
 
     .flag {
         height: 160px;
         width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: calc(0.375rem - 1px);
+            border-top-right-radius: calc(0.375rem - 1px);
+        }
     }
 
     .card-body {
@@ -104,7 +211,7 @@ html[theme='dark'] {
         .country-name {
             font-size: 1rem;
             font-weight: 700;
-            margin-bottom: 10px; 
+            margin-bottom: 10px;
         }
 
         .country-info {
@@ -112,5 +219,61 @@ html[theme='dark'] {
                 font-weight: 500;
             }
         }
+    }
+}
+
+.country-flag {
+    height: 50%;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+    box-sizing: border-box;
+    padding: 6px 44px;
+    margin: 0;
+}
+
+
+@media screen and (max-width: 1920px) {
+    .nav-header {
+        padding: 48px;
+    }
+
+    .app {
+        padding: 48px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-header {
+        padding: 48px;
+    }
+
+    .app {
+        padding: 48px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .nav-header {
+        padding: 32px;
+    }
+
+    .app {
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+
+    .nav-header {
+        padding: 16px;
+    }
+
+    .app {
+        padding: 8px;
     }
 }
