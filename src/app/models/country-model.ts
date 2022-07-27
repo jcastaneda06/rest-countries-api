@@ -18,18 +18,15 @@ export interface CountryModel {
         png: string;
         svg: string;
     }
-    topLevelDomain?: string;
+    tld?: [];
     currencies?: {
-        curr: {
+        [key: string]: {
             name: string;
             symbol: string;
         }
     }
     languages?: {
-        lang?: string;
+        [key: string]: string;
     }
-}
-
-export interface CurrencyModel {
-    
+    borders?: [];
 }

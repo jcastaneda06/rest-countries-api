@@ -8,23 +8,23 @@
 </div>
 
 <div class="app">
-    <div class="container-fluid">
+    <div class="container-fluid mb-5">
         <div class="row">
             <div class="col">
                 <button class="back-button" (click)="back()">Back</button>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div class="row">
             <!--Flag image-->
-            <div class="col">
-                <img class="country-flag" src="{{country.flags!.svg}}" alt="">
+            <div class="col-6 d-flex justify-content-center">
+                <img style="height: 60%;" class="country-flag" src="{{country.flags!.svg}}" alt="">
             </div>
-            <div class="col">
+            <div class="col-6 mt-5">
                 <div class="row mt-4 mb-4">
                     <div class="col">
-                    <h2>{{country!.name!.common}}</h2>
+                        <h2 class="text-start">{{country!.name!.common}}</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -58,22 +58,33 @@
                     <div class="col">
                         <div class="row">
                             <div class="col">
-                                <strong>Top Level Domain:</strong> {{country.topLevelDomain}}
+                                <strong>Top Level Domain:</strong> {{country.tld}}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <strong>Currencies:</strong> {{country.currencies | json}}
+                                <strong>Currencies:</strong> {{currencyString}}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <strong>Languages:</strong> {{country.languages?.lang}}
+                                <strong>Languages:</strong> {{languageString}}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row"></div>
+                <div class="row mt-5 justify-content-start">
+                    <div class="col-3 mt-1">
+                        <strong>Border countries:</strong>
+                    </div>
+                    <div class="col">
+                        <div class="row g-4">
+                            <div *ngFor="let border of borders" class="col-3 ms-2 country-tag">
+                                {{border}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
